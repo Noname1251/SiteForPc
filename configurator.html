@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конфигуратор компьютеров | КомпьютерЪ</title>
+    <link rel="stylesheet" href="/Style/root.css">
+    <link rel="stylesheet" href="/Style/buttons.css">
+    <link rel="stylesheet" href="/Style/configuretor.css">
+</head>
+<body>
+    <!-- Кнопка для открытия меню -->
+    <button id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Боковая панель -->
+    <header id="sidebar">
+        <div class="container">
+            <div class="header-left">
+                <a href="index.html" class="logo">PIXEL<span>PC</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Каталог</a></li>
+                        <li><a href="configurator.html" class="active">Конструктор ПК</a></li>
+                        <li><a href="cart.html" >Корзина</a></li>
+                        <li><a href="aboutus.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="addinfo.html">Дополнительно</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Конфигуратор</h1>
+            <p>опопопоп</p>
+            <div class="configurator-buttons">
+                <a href="readypc.html" class="btn btn-large btn-primary">Создание индивидуального ПК</a>
+                <a href="configurator.html" class="btn btn-large btn-primary">Конструктор ПК</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="configurator-page">
+        <div class="container">
+
+            <div style="border-bottom: 1px solid #ccc; margin: 20px 0;"></div>
+            
+            <div class="configurator-layout">
+                <!-- Блок выбора компонентов -->
+                <div class="components-selector">
+                    <div class="configurator-steps">
+                        <div class="step active" data-step="cpu">
+                            <span>1</span>
+                            <p>Процессор</p>
+                        </div>
+                        <div class="step" data-step="gpu">
+                            <span>2</span>
+                            <p>Видеокарта</p>
+                        </div>
+                        <div class="step" data-step="ram">
+                            <span>3</span>
+                            <p>Память</p>
+                        </div>
+                        <div class="step" data-step="motherboard">
+                            <span>4</span>
+                            <p>Материнская плата</p>
+                        </div>
+                        <div class="step" data-step="storage">
+                            <span>5</span>
+                            <p>Накопители</p>
+                        </div>
+                        <div class="step" data-step="cooling">
+                            <span>6</span>
+                            <p>Охлаждение</p>
+                        </div>
+                    </div>
+
+                    <div class="components-list" id="cpu">
+                        <h2>Выберите процессор</h2>
+                        <div class="component-options">
+                            <div class="component-card selected" data-component="cpu" data-id="intel-i9" data-price="49990">
+                                <div class="component-img">
+                                    <img src="images/cpu-intel.jpg" alt="Intel Core i9">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Intel Core i9-13900K</h3>
+                                    <p>24 ядра, 5.8 ГГц, LGA 1700</p>
+                                    <div class="price">49 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cpu" data-id="amd-ryzen9" data-price="45990">
+                                <div class="component-img">
+                                    <img src="images/cpu-amd.jpg" alt="AMD Ryzen 9">
+                                </div>
+                                <div class="component-info">
+                                    <h3>AMD Ryzen 9 7950X</h3>
+                                    <p>16 ядер, 5.7 ГГц, AM5</p>
+                                    <div class="price">45 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="components-list hidden" id="gpu">
+                        <h2>Выберите видеокарту</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="gpu" data-id="rtx4090" data-price="129990">
+                                <div class="component-img">
+                                    <img src="images/gpu-nvidia.jpg" alt="NVIDIA RTX 4090">
+                                </div>
+                                <div class="component-info">
+                                    <h3>NVIDIA RTX 4090</h3>
+                                    <p>24GB GDDR6X, 16384 ядер</p>
+                                    <div class="price">129 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="gpu" data-id="rx7900" data-price="89990">
+                                <div class="component-img">
+                                    <img src="images/gpu-amd.jpg" alt="AMD RX 7900">
+                                </div>
+                                <div class="component-info">
+                                    <h3>AMD RX 7900 XTX</h3>
+                                    <p>24GB GDDR6, 6144 ядер</p>
+                                    <div class="price">89 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Добавлены новые секции для других компонентов -->
+                    <div class="components-list hidden" id="ram">
+                        <h2>Выберите оперативную память</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="ram" data-id="ram-32gb" data-price="15990">
+                                <div class="component-img">
+                                    <img src="images/ram-32gb.jpg" alt="RAM 32GB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Corsair Vengeance 32GB</h3>
+                                    <p>DDR5 5600MHz (2x16GB)</p>
+                                    <div class="price">15 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="ram" data-id="ram-64gb" data-price="29990">
+                                <div class="component-img">
+                                    <img src="images/ram-64gb.jpg" alt="RAM 64GB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>G.Skill Trident Z 64GB</h3>
+                                    <p>DDR5 6000MHz (2x32GB)</p>
+                                    <div class="price">29 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="components-list hidden" id="motherboard">
+                        <h2>Выберите материнскую плату</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="motherboard" data-id="mb-intel" data-price="24990">
+                                <div class="component-img">
+                                    <img src="images/mb-intel.jpg" alt="Intel Motherboard">
+                                </div>
+                                <div class="component-info">
+                                    <h3>ASUS ROG Maximus Z790</h3>
+                                    <p>LGA 1700, Intel Z790</p>
+                                    <div class="price">24 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="motherboard" data-id="mb-amd" data-price="21990">
+                                <div class="component-img">
+                                    <img src="images/mb-amd.jpg" alt="AMD Motherboard">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Gigabyte X670E AORUS</h3>
+                                    <p>Socket AM5, AMD X670</p>
+                                    <div class="price">21 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Блок предпросмотра сборки -->
+                <div class="build-preview">
+                    <div class="build-summary">
+                        <h2 class="section-title">Ваша сборка</h2>
+                        <div class="selected-components">
+                            <div class="selected-component" data-component="cpu">
+                                <div class="component-header">
+                                    <h3>Процессор</h3>
+                                    <div class="price component-price">49 990 ₽</div>
+                                </div>
+                                <p class="component-name">Intel Core i9-13900K</p>
+                            </div>
+                            <div class="selected-component empty" data-component="gpu">
+                                <div class="component-header">
+                                    <h3>Видеокарта</h3>
+                                    <div class="price component-price hidden">0 ₽</div>
+                                </div>
+                                <p class="component-name">Не выбрана</p>
+                            </div>
+                            <div class="selected-component empty" data-component="ram">
+                                <div class="component-header">
+                                    <h3>Оперативная память</h3>
+                                    <div class="price component-price hidden">0 ₽</div>
+                                </div>
+                                <p class="component-name">Не выбрана</p>
+                            </div>
+                            <div class="selected-component empty" data-component="motherboard">
+                                <div class="component-header">
+                                    <h3>Материнская плата</h3>
+                                    <div class="price component-price hidden">0 ₽</div>
+                                </div>
+                                <p class="component-name">Не выбрана</p>
+                            </div>
+                            <div class="selected-component empty" data-component="storage">
+                                <div class="component-header">
+                                    <h3>Накопитель</h3>
+                                    <div class="price component-price hidden">0 ₽</div>
+                                </div>
+                                <p class="component-name">Не выбран</p>
+                            </div>
+                            <div class="selected-component empty" data-component="cooling">
+                                <div class="component-header">
+                                    <h3>Охлаждение</h3>
+                                    <div class="price component-price hidden">0 ₽</div>
+                                </div>
+                                <p class="component-name">Не выбрано</p>
+                            </div>
+                        </div>
+                        <div class="total-price">
+                            <h3>Итого:</h3>
+                            <div class="price" id="total-price">49 990 ₽</div>
+                        </div>
+                        <button class="btn btn-large" id="add-to-cart" disabled>Добавить в корзину</button>
+                    </div>
+
+                    <div class="compatibility-check">
+                        <h3>Проверка совместимости</h3>
+                        <div class="compatibility-item" data-type="cpu-mb">
+                            <span>✓</span> Процессор и материнская плата: совместимы
+                        </div>
+                        <div class="compatibility-item warning" data-type="gpu">
+                            <span>!</span> Не выбрана видеокарта
+                        </div>
+                        <div class="compatibility-item warning" data-type="ram">
+                            <span>!</span> Не выбрана оперативная память
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PIXELPC</h3>
+                    <p></p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Каталог</h3>
+                    <ul>
+                        <li><a href="readypc.html">Готовые ПК</a></li>
+                        <li><a href="components.html">Комплектующие</a></li>
+                        <li><a href="configurator.html">Конфигуратор</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>Иркутск делай да</li>
+                        <li>+7 ну тут цифры какие то</li>
+                        <li>info@PIXELPC.рф</li>
+                        <li>Ежедневно 10:00-20:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PIXELPC. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/Js/configurator.js"></script>
+    
+    <!-- Иконка корзины -->
+    <div class="cart-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <div class="cart-count">0</div>
+    </div>
+
+    <script src="/Js/cart.js"></script>
+</body>
+</html>

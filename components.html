@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комплектующие - PIXELPC</title>
+    <link rel="stylesheet" href="/Style/root.css">
+    <link rel="stylesheet" href="/Style/cards.css">
+    <link rel="stylesheet" href="/Style/buttons.css">
+</head>
+<body>
+    <!-- Кнопка для открытия меню -->
+    <button id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Боковая панель -->
+    <header id="sidebar">
+        <div class="container">
+            <div class="header-left">
+                <a href="index.html" class="logo">PIXEL<span>PC</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html" class="active">Каталог</a></li>
+                        <li><a href="configurator.html">Конструктор ПК</a></li>
+                        <li><a href="cart.html" >Корзина</a></li>
+                        <li><a href="aboutus.html">О нас</a></li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="addinfo.html">Дополнительно</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="overlay" class="overlay"></div>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Комплектующие для компьютеров</h1>
+            <p>Широкий выбор компонентов для сборки вашего идеального ПК</p>
+        </div>
+    </section>
+
+    <section class="components">
+        <div class="container">
+            <div class="component-categories">
+                <!-- Процессоры -->
+                <div class="category-section">
+                    <h2>Процессоры</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/cpu-intel.jpg" alt="Процессор Intel">
+                            </div>
+                            <div class="product-info">
+                                <h3>Intel Core i9-13900K</h3>
+                                <p>24 ядра, 5.8 ГГц, LGA 1700</p>
+                                <div class="price">49 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/cpu-amd.jpg" alt="Процессор AMD">
+                            </div>
+                            <div class="product-info">
+                                <h3>AMD Ryzen 9 7950X</h3>
+                                <p>16 ядер, 5.7 ГГц, AM5</p>
+                                <div class="price">45 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Видеокарты -->
+                <div class="category-section">
+                    <h2>Видеокарты</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/gpu-nvidia.jpg" alt="Видеокарта NVIDIA">
+                            </div>
+                            <div class="product-info">
+                                <h3>NVIDIA RTX 4090</h3>
+                                <p>24GB GDDR6X, 16384 ядер</p>
+                                <div class="price">129 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/gpu-amd.jpg" alt="Видеокарта AMD">
+                            </div>
+                            <div class="product-info">
+                                <h3>AMD RX 7900 XTX</h3>
+                                <p>24GB GDDR6, 6144 ядер</p>
+                                <div class="price">89 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Оперативная память -->
+                <div class="category-section">
+                    <h2>Оперативная память</h2>
+                    <div class="product-grid">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/ram-32gb.jpg" alt="Оперативная память 32GB">
+                            </div>
+                            <div class="product-info">
+                                <h3>Corsair Vengeance 32GB</h3>
+                                <p>DDR5 5600MHz (2x16GB)</p>
+                                <div class="price">15 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/ram-64gb.jpg" alt="Оперативная память 64GB">
+                            </div>
+                            <div class="product-info">
+                                <h3>G.Skill Trident Z 64GB</h3>
+                                <p>DDR5 6000MHz (2x32GB)</p>
+                                <div class="price">29 990 ₽</div>
+                                <a href="#" class="btn">В корзину</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>PIXELPC</h3>
+                    <p>Магазин компьютерной техники</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Каталог</h3>
+                    <ul>
+                        <li><a href="readypc.html">Готовые ПК</a></li>
+                        <li><a href="components.html">Комплектующие</a></li>
+                        <li><a href="configurator.html">Конфигуратор</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Помощь</h3>
+                    <ul>
+                        <li><a href="#">Доставка и оплата</a></li>
+                        <li><a href="#">Гарантия</a></li>
+                        <li><a href="#">Возврат</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>Иркутск, ул. Примерная, 123</li>
+                        <li>+7 (123) 456-78-90</li>
+                        <li>info@PIXELPC.рф</li>
+                        <li>Ежедневно 10:00-20:00</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 PIXELPC. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="/Js/configurator.js"></script>
+    
+    <!-- Иконка корзины -->
+    <div class="cart-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        <div class="cart-count">0</div>
+    </div>
+
+    <script src="/Js/cart.js"></script>
+</body>
+</html>
