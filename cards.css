@@ -1,0 +1,185 @@
+.category-card,
+.product-card,
+.component-card {
+    border: 1px solid #3a3a4a;
+    border-radius: 12px; /* Увеличено закругление */
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--card-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+/* Сетка для карточек */
+.product-grid,
+.component-options,
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px; /* Увеличено расстояние между карточками */
+    padding: var(--gap-medium) 0;
+    width: 100%;
+}
+
+/* 3 карточки в строку на больших экранах */
+@media (min-width: 1000px) {
+    .product-grid,
+    .component-options,
+    .category-grid.centered-grid {
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+    }
+}
+
+/* 2 карточки на планшетах */
+@media (max-width: 999px) and (min-width: 600px) {
+    .product-grid,
+    .component-options,
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+}
+
+/* 1 карточка на мобильных */
+@media (max-width: 599px) {
+    .product-grid,
+    .component-options,
+    .category-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Стили изображений */
+.category-img,
+.product-img,
+.component-img {
+    background-color: #1a1a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-img {
+    height: 220px;
+}
+
+.product-img {
+    height: 240px;
+}
+
+.component-img {
+    height: 160px;
+    margin-bottom: 1rem;
+}
+
+.category-img img,
+.product-img img,
+.component-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Эффекты при наведении */
+.category-card:hover,
+.product-card:hover,
+.component-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.category-card:hover img,
+.product-card:hover img,
+.component-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Контейнер информации (без стилей текста) */
+.category-info,
+.product-info,
+.component-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Выбранные компоненты */
+.component-card.selected {
+    border: 2px solid var(--accent-color);
+    background-color: rgba(123, 104, 238, 0.15);
+    box-shadow: 0 0 0 3px rgba(123, 104, 238, 0.2);
+}
+
+/* Бейджи на карточках */
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 1;
+}
+/* Добавьте это в cards.css */
+
+/* Обновленные стили для контейнера информации в карточках */
+.category-info,
+.product-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative; /* Добавляем относительное позиционирование */
+    min-height: 180px; /* Минимальная высота для консистентности */
+}
+
+/* Стили для текстового содержимого */
+.category-info h3,
+.product-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.category-info p,
+.product-info p {
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Растягиваем описание, чтобы кнопка оставалась внизу */
+}
+
+/* Стили для ценового блока */
+.price {
+    margin-bottom: 1rem;
+}
+
+/* Стили для кнопок внутри карточек */
+.category-info .btn,
+.product-info .btn {
+    margin-top: auto; /* Прижимает кнопку к низу */
+    align-self: flex-start; /* Выравнивает кнопку по левому краю */
+    width: auto; /* Ширина по содержимому */
+    margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+/* Опционально: добавить небольшой отступ для кнопок в карточках товаров */
+.product-info .btn {
+    margin-top: 0.5rem;
+}
+
+/* Для карточек с акциями (где есть старая цена) */
+.old-price {
+    display: block;
+    font-size: 0.9em;
+    color: #aaa;
+    text-decoration: line-through;
+    margin-top: 0.2rem;
+}

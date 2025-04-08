@@ -1,0 +1,99 @@
+/* buttons.css */
+
+/* Base button styles */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold; 
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 30%);
+    filter: brightness(0.9);
+}
+
+/* Button sizes */
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Button types */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: rgba(123, 104, 238, 0.7);
+}
+
+/* Specific button styles */
+.catalog-btn {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.view-all-btn {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Configurator buttons */
+.configurator-buttons {
+    background: rgba(0, 0, 0, 0);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.catalog-section.configurator .btn-large {
+    width: auto;
+    padding: 1rem 3rem;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Dark wrapper for buttons */
+.btn-dark-wrapper {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    transition: background-color 0.3s;
+}
+
+.btn-dark-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Disabled state */
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
