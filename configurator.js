@@ -4,12 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
     
-    // Проверка наличия элементов
-    if (!menuToggle || !sidebar || !overlay) {
-        console.error('Не найдены необходимые элементы для работы меню');
-        return;
-    }
-
     // Функция переключения меню
     function toggleMenu() {
         const isActive = !sidebar.classList.contains('active');
@@ -29,23 +23,26 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = '';
     }
 
-    // Обработчики событий
-    menuToggle.addEventListener('click', toggleMenu);
-    overlay.addEventListener('click', closeMenu);
+    // Обработчики событий меню
+    if (menuToggle && sidebar && overlay) {
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', closeMenu);
 
-    // Закрытие меню при клике на ссылку
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', function() {
-            if (window.innerWidth < 992) {
-                closeMenu();
-            }
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth < 992) {
+                    closeMenu();
+                }
+            });
         });
-    });
+    }
 
-    // Остальной код конфигуратора...
+    // Логика конфигуратора
     const steps = document.querySelectorAll('.step');
     const componentLists = document.querySelectorAll('.components-list');
     const componentCards = document.querySelectorAll('.component-card');
+    
     let selectedComponents = {
         cpu: { id: 'intel-i9', name: 'Intel Core i9-13900K', price: 49990 },
         gpu: null,
@@ -54,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         storage: null,
         cooling: null
     };
-    let totalPrice = 49990; // Начальная цена с выбранным процессором
+    
+    let totalPrice = 0; // Начальная цена с выбранным процессором
 
     // Переключение между шагами
     steps.forEach(step => {
@@ -80,24 +78,33 @@ document.addEventListener('DOMContentLoaded', function() {
             const componentId = this.getAttribute('data-id');
             const componentPrice = parseInt(this.getAttribute('data-price'));
             const componentName = this.querySelector('h3').textContent;
+            const componentImage = this.querySelector('img').src;
             
-            updateSelectedComponent(componentType, componentId, componentName, componentPrice);
+            // Обновляем выбранный компонент
+            selectedComponents[componentType] = { 
+                id: componentId, 
+                name: componentName, 
+                price: componentPrice,
+                image: componentImage
+            };
             
+            // Обновляем UI
             this.parentElement.querySelectorAll('.component-card').forEach(c => {
                 c.classList.remove('selected');
             });
             this.classList.add('selected');
             
+            updateSelectedComponentUI(componentType, componentName, componentPrice);
             updateTotalPrice();
             checkAddToCartButton();
         });
     });
     
-    // Обновление выбранного компонента
-    function updateSelectedComponent(type, id, name, price) {
-        selectedComponents[type] = { id, name, price };
-        
+    // Обновление UI выбранного компонента
+    function updateSelectedComponentUI(type, name, price) {
         const componentElement = document.querySelector(`.selected-component[data-component="${type}"]`);
+        if (!componentElement) return;
+        
         componentElement.classList.remove('empty');
         componentElement.querySelector('.component-name').textContent = name;
         
@@ -121,14 +128,72 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('add-to-cart').disabled = !allSelected;
     }
     
-    // Обработка добавления в корзину
-    document.getElementById('add-to-cart').addEventListener('click', function() {
-        alert(`Сборка добавлена в корзину! Общая стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`);
-        
-        localStorage.setItem('currentBuild', JSON.stringify({
-            components: selectedComponents,
-            totalPrice: totalPrice,
-            date: new Date().toISOString()
-        }));
-    });
+
+    // Инициализация конфигуратора
+    updateTotalPrice();
+    checkAddToCartButton();
+
+    // Обработчик события для кнопки "Добавить в корзину"
+    document.getElementById('add-to-cart').addEventListener('click', addToCart);
+
+    // Функция добавления выбранных компонентов в корзину
+    function addToCart() {
+        const cartItems = document.querySelector('.cart-items');
+        const emptyCartMessage = document.querySelector('.empty-cart-message');
+        const checkoutButton = document.querySelector('.checkout-btn');
+
+        // Очистка корзины перед добавлением новых компонентов
+        cartItems.innerHTML = '';
+
+        // Добавление выбранных компонентов в корзину
+        Object.values(selectedComponents).forEach(component => {
+            if (component) {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${component.image}" alt="${component.name}">
+                    <div class="item-details">
+                        <h3>${component.name}</h3>
+                        <p>${component.price.toLocaleString('ru-RU')} ₽</p>
+                    </div>
+                    <button class="remove-item-btn">Удалить</button>
+                `;
+                cartItems.appendChild(cartItem);
+            }
+        });
+
+        // Обновление итоговой цены в корзине
+        const totalPriceElement = document.querySelector('.total-price');
+        totalPriceElement.textContent = `${totalPrice.toLocaleString('ru-RU')} ₽`;
+
+        // Обновление количества товаров в корзине
+        const itemsCountElement = document.querySelector('.items-price');
+        const itemsCount = Object.values(selectedComponents).filter(component => component !== null).length;
+        itemsCountElement.textContent = `${itemsCount} товар(ов)`;
+
+        // Скрытие сообщения о пустой корзине и активация кнопки оформления заказа
+        emptyCartMessage.classList.add('hidden');
+        checkoutButton.disabled = false;
+
+        // Добавление обработчиков событий для кнопок удаления
+        const removeButtons = document.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', removeItemFromCart);
+        });
+    }
+
+    // Функция удаления компонента из корзины
+    function removeItemFromCart(event) {
+        const cartItem = event.target.closest('.cart-item');
+        const componentName = cartItem.querySelector('h3').textContent;
+        const componentType = Object.keys(selectedComponents).find(key => selectedComponents[key]?.name === componentName);
+
+        if (componentType) {
+            selectedComponents[componentType] = null;
+            cartItem.remove();
+            updateTotalPrice();
+            checkAddToCartButton();
+            addToCart();
+        }
+    }
 });

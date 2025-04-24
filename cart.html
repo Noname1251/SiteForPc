@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Корзина - PIXELPC</title>
-    <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="/frontend/Style/root.css">
+    <link rel="stylesheet" href="/frontend/Style/cart-styles.css">
+    <link rel="stylesheet" href="/frontend/Style/buttons.css">
+    <link rel="stylesheet" href="/frontend/Style/cart-items.css">
 </head>
 <body>
-    <!-- Кнопка для открытия меню -->
+    <!-- Кнопка меню -->
     <button id="menu-toggle" class="menu-toggle">
         <span></span>
         <span></span>
@@ -20,17 +22,17 @@
         <div class="container">
             <div class="header-left">
                 <a href="index.html" class="logo">PIXEL<span>PC</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="catalog.html">Каталог</a></li>
-                        <li><a href="configurator.html">Конструктор ПК</a></li>
-                        <li><a href="cart.html" class="active">Корзина</a></li>
-                        <li><a href="aboutus.html">О нас</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                        <li><a href="addinfo.html">Дополнительно</a></li>
-                    </ul>
-                </nav>
+<nav>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="configurator.html">Конструктор ПК</a></li>
+        <li><a href="cart.html" class="active">Корзина</a></li>
+        <li><a href="aboutus.html">О нас</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="register.html">Вход/Регистрация</a></li>
+    </ul>
+</nav>
             </div>
         </div>
     </header>
@@ -42,8 +44,7 @@
             <h1 class="section-title">Ваша корзина</h1>
             
             <div class="cart-items">
-                <!-- Товары будут добавляться динамически через JS -->
-                <div class="empty-cart-message">
+                <div class="empty-cart-message hidden">
                     <p>Ваша корзина пуста</p>
                     <a href="catalog.html" class="btn">Перейти в каталог</a>
                 </div>
@@ -82,17 +83,6 @@
                     <ul>
                         <li><a href="readypc.html">Готовые ПК</a></li>
                         <li><a href="components.html">Комплектующие</a></li>
-                        <li><a href="configurator.html">Конфигуратор</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Помощь</h3>
-                    <ul>
-                        <li><a href="#">Доставка и оплата</a></li>
-                        <li><a href="#">Гарантия</a></li>
-                        <li><a href="#">Возврат</a></li>
-                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 
@@ -101,8 +91,7 @@
                     <ul>
                         <li>Иркутск, ул. Примерная, 123</li>
                         <li>+7 (123) 456-78-90</li>
-                        <li>info@PIXELPC.рф</li>
-                        <li>Ежедневно 10:00-20:00</li>
+                        <li>info@pixelpc.ru</li>
                     </ul>
                 </div>
             </div>
@@ -113,7 +102,7 @@
         </div>
     </footer>
 
-    <script src="configurator.js"></script>
-    <script src="cart.js"></script>
+    <script src="/configurator.js"></script>
+    <script src="/cart.js"></script>
 </body>
 </html>

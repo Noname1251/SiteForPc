@@ -3,10 +3,11 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIXELPC - Магазин компьютерной техники</title>
-    <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="buttons.css">
-    <link rel="stylesheet" href="cards.css">
+    <title>MARKINSIDE - Магазин компьютерной техники</title>
+    <link rel="stylesheet" href="/root.css">
+    <link rel="stylesheet" href="/buttons.css">
+    <link rel="stylesheet" href="/cards.css">
+    <link rel="stylesheet" href="/slider.css">
 </head>
 <body>
     <!-- Кнопка для открытия меню -->
@@ -20,18 +21,19 @@
     <header id="sidebar">
         <div class="container">
             <div class="header-left">
-                <a href="index.html" class="logo">PIXEL<span>PC</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="active">Главная</a></li>
-                        <li><a href="catalog.html">Каталог</a></li>
-                        <li><a href="configurator.html">Конструктор ПК</a></li>
-                        <li><a href="cart.html" >Корзина</a></li>
-                        <li><a href="aboutus.html">О нас</a></li>
-                        <li><a href="contacts.html">Контакты</a></li>
-                        <li><a href="addinfo.html">Дополнительно</a></li>
-                    </ul>
-                </nav>
+                <a href="index.html" class="logo">MARK<span>INSIDE</span></a>
+<nav>
+    <ul>
+        <li><a href="index.html" class="active">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li><a href="configurator.html">Конструктор ПК</a></li>
+        <li><a href="cart.html">Корзина</a></li>
+        <li><a href="aboutus.html">О нас</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+        <li><a href="addinfo.html">Дополнительно</a></li>
+        <li><a href="register.html">Вход/Регистрация</a></li>
+    </ul>
+</nav>
             </div>
         </div>
     </header>
@@ -47,6 +49,48 @@
         </div>
     </section>
     
+    <!-- Слайдер -->
+    <section class="main-slider">
+        <div class="container">
+            <div class="slider-container">
+                <div class="slides">
+                    <div class="slide active">
+                        <img src="/slide1.jpg" alt="Компьютерная техника">
+                        <div class="slide-content">
+                            <h2>Мощные игровые компьютеры</h2>
+                            <p>Соберите свою идеальную конфигурацию</p>
+                            <a href="catalog.html" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="/slide2.jpg" alt="Комплектующие">
+                        <div class="slide-content">
+                            <h2>Лучшие комплектующие</h2>
+                            <p>Только качественные компоненты</p>
+                            <a href="components.html" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="/slide3.jpg" alt="Ноутбуки">
+                        <div class="slide-content">
+                            <h2>Профессиональные ноутбуки</h2>
+                            <p>Мобильность без компромиссов</p>
+                            <a href="catalog.html" class="btn">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="slider-btn prev-btn">&lt;</button>
+                <button class="slider-btn next-btn">&gt;</button>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="categories">
         <div class="container">
             <h2 class="section-title">Категории товаров</h2>
@@ -91,7 +135,7 @@
         <div class="container">
             <h2 class="section-title">Рекомендуемые товары</h2>
             <div class="product-grid centered-grid">
-                <div class="category-card">
+                <div class="product-card">
                     <div class="product-img">
                         <img src="images/gaming-pc.jpg" alt="Игровой ПК">
                     </div>
@@ -99,7 +143,13 @@
                         <h3>Игровой ПК "ВоеводаЪ"</h3>
                         <p>Intel Core i9-13900K, RTX 4090, 32GB DDR5</p>
                         <div class="price">189 990 ₽ <span class="old-price">210 000 ₽</span></div>
-                        <a href="catalog.html?product=vojevoda" class="btn">В корзину</a>
+                        <button class="btn add-to-cart" 
+                                data-id="vojevoda" 
+                                data-name="Игровой ПК 'ВоеводаЪ'" 
+                                data-price="189990" 
+                                data-image="images/gaming-pc.jpg">
+                            В корзину
+                        </button>
                     </div>
                 </div>
                 
@@ -111,7 +161,13 @@
                         <h3>Рабочая станция "ПрофессионалЪ"</h3>
                         <p>AMD Ryzen Threadripper PRO, 64GB ECC, RTX A6000</p>
                         <div class="price">349 990 ₽</div>
-                        <a href="catalog.html?product=professional" class="btn">В корзину</a>
+                        <button class="btn add-to-cart" 
+                        data-id="ПрофессионалЪ" 
+                        data-name="Рабочая станция 'ПрофессионалЪ'" 
+                        data-price="189990" 
+                        data-image="images/gaming-pc.jpg">
+                    В корзину
+                    </button>
                     </div>
                 </div>
                 
@@ -123,7 +179,13 @@
                         <h3>Ноутбук "СтранникЪ"</h3>
                         <p>Intel Core i7-12800H, RTX 3080 Ti, 32GB DDR5</p>
                         <div class="price">159 990 ₽ <span class="old-price">175 000 ₽</span></div>
-                        <a href="catalog.html?product=strannik" class="btn">В корзину</a>
+                        <button class="btn add-to-cart" 
+                                data-id="strannik" 
+                                data-name="Ноутбук 'СтранникЪ'" 
+                                data-price="159990" 
+                                data-image="images/gaming-laptop.jpg">
+                            В корзину
+                        </button>
                     </div>
                 </div>
                 
@@ -138,7 +200,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3>PIXELPC</h3>
+                    <h3>MARKINSIDE</h3>
                     <p></p>
                 </div>
                 
@@ -173,23 +235,25 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 PIXELPC. Все права защищены.</p>
+                <p>&copy; 2023 MARKINSIDE. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <script src="configurator.js"></script>
+    <script src="/configurator.js"></script>
     
-    <!-- Иконка корзины -->
-    <div class="cart-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
-            <circle cx="9" cy="21" r="1"></circle>
-            <circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-        <div class="cart-count">0</div>
-    </div>
+<!-- Иконка корзины с ссылкой на страницу корзины -->
+<a href="cart.html" class="cart-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+    <div class="cart-count">0</div>
+</a>
 
-    <script src="cart.js"></script>
+    <script src="/cart.js"></script>
+    <script src="/slider.js"></script>
+    <script src="/cart.js"></script>
 </body>
 </html>
