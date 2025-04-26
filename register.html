@@ -1,13 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход/Регистрация | PIXELPC</title>
+    <title>Вход/Регистрация | MARKINSIDE</title>
     <link rel="stylesheet" href="root.css">
-    <link rel="stylesheet" href="buttons.css">
-    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="register.css">
+    
 </head>
 <body>  
     <!-- Кнопка для открытия меню -->
@@ -21,7 +20,7 @@
     <header id="sidebar">
         <div class="container">
             <div class="header-left">
-                <a href="index.html" class="logo">PIXEL<span>PC</span></a>
+                <a href="index.html" class="logo">MARK<span>INSIDE</span></a>
                 <nav>
                     <ul>
                         <li><a href="index.html">Главная</a></li>
@@ -50,8 +49,12 @@
             
             <!-- Форма входа -->
             <form id="login-form" class="auth-form active">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Пароль" required>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Пароль" required>
+                </div>
                 <button type="submit" class="btn">Войти</button>
                 <div class="auth-footer">
                     Нет аккаунта? <a href="#" class="switch-tab" data-tab="register">Зарегистрируйтесь</a>
@@ -60,10 +63,18 @@
             
             <!-- Форма регистрации -->
             <form id="register-form" class="auth-form">
-                <input type="text" name="name" placeholder="Имя" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Пароль" required>
-                <input type="password" name="confirm_password" placeholder="Подтвердите пароль" required>
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Имя" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirm_password" placeholder="Подтвердите пароль" required>
+                </div>
                 <button type="submit" class="btn">Зарегистрироваться</button>
                 <div class="auth-footer">
                     Уже есть аккаунт? <a href="#" class="switch-tab" data-tab="login">Войдите</a>
@@ -75,7 +86,7 @@
     <footer>
         <div class="container">
             <div class="copyright">
-                <p>&copy; 2023 PIXELPC. Все права защищены.</p>
+                <p>&copy; 2023 MARKINSIDE. Все права защищены.</p>
             </div>
         </div>
     </footer>
