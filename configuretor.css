@@ -230,3 +230,102 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
+/* Специфичные стили для этой страницы */
+.help-section {
+    padding: 3rem 0;
+}
+
+.help-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-color);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.help-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: white;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.budget-range {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.budget-range input {
+    flex: 1;
+}
+
+.budget-value {
+    min-width: 80px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.form-submit {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.help-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.feature-card {
+    background: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+.feature-card p {
+    color: white;
+}
+/* Добавлено в конец файла */
+.form-group input[type="tel"] {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+}

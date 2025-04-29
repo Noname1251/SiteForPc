@@ -3,7 +3,8 @@
 <head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARKINSIDE - Магазин компьютерной техники</title>
+    <title>MARKINSIDE - Магазин компьютерной техники</title> 
+    <link rel="shortcut icon" href="favicon-96x96.png" type="image/x-icon">
     <link rel="stylesheet" href="root.css">
     <link rel="stylesheet" href="buttons.css">
     <link rel="stylesheet" href="cards.css">
@@ -22,18 +23,55 @@
         <div class="container">
             <div class="header-left">
                 <a href="index.html" class="logo">MARK<span>INSIDE</span></a>
-<nav>
-    <ul>
-        <li><a href="index.html" class="active">Главная</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="configurator.html">Конструктор ПК</a></li>
-        <li><a href="cart.html">Корзина</a></li>
-        <li><a href="aboutus.html">О нас</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-        <li><a href="addinfo.html">Дополнительно</a></li>
-        <li><a href="register.html">Вход/Регистрация</a></li>
-    </ul>
-</nav>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li class="has-submenu">
+                            <a href="catalog.html">Каталог</a>
+                            <div class="submenu">
+                                <div class="has-submenu-l2">
+                                    <a href="#">Готовые ПК</a>
+                                    <div class="submenu-l2">
+                                        <a href="#">Игровые ПК</a>
+                                        <a href="#">Рабочие ПК</a>
+                                        <a href="#">Хз че написать ПК</a>
+                                    </div>
+                                </div>
+                                <div class="has-submenu-l2">
+                                    <a href="components.html">Комплектующие</a>
+                                    <div class="submenu-l2">
+                                        <a href="#">Процессоры</a>
+                                        <a href="#">Видеокарты</a>
+                                        <a href="#">Материнские платы</a>
+                                        <a href="#">Оперативная память</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="configurator.html">Конструктор ПК</a>
+                            <div class="submenu">
+                                <a href="configurator.html">Конфигуратор ПК</a>
+                                <a href="helpwithcreating.html">Помощь с подбором комплектующих</a>
+                            </div>
+                        </li>
+                        <li><a href="cart.html">Корзина</a></li>
+                        <li class="has-submenu">
+                            <a href="aboutus.html">О нас</a>
+                            <div class="submenu">
+                                <a href="team.html">Наша команда</a>
+                                <a href="history.html">История компании</a>
+                            </div>
+                        </li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="addinfo.html">Дополнительно</a></li>
+                        <li><a href="register.html">Вход/Регистрация</a></li>
+                    </ul>
+                </nav>
+                <!-- Логотип внизу -->
+                <div class="sidebar-footer">
+                    <img src="favicon-96x96.png" alt="Логотип MARKINSIDE" class="sidebar-logo">
+                </div>
             </div>
         </div>
     </header>
@@ -80,8 +118,22 @@
                     </div>
                 </div>
                 
-                <button class="slider-btn prev-btn">&lt;</button>
-                <button class="slider-btn next-btn">&gt;</button>
+                <button class="slider-btn prev-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M5 12l4 4" />
+                        <path d="M5 12l4 -4" />
+                    </svg>
+                </button>
+                <button class="slider-btn next-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M5 12l14 0" />
+                        <path d="M15 16l4 -4" />
+                        <path d="M15 8l4 4" />
+                    </svg>
+                </button>
                 <div class="slider-dots">
                     <span class="dot active"></span>
                     <span class="dot"></span>

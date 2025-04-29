@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог - MARKINSIDE</title>
+    <title>Помощь со сборкой ПК - MARKINSIDE</title>
+    <link rel="shortcut icon" href="favicon-96x96.png" type="image/x-icon">
     <link rel="stylesheet" href="root.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="configuretor.css">
 </head>
 <body>
     <!-- Кнопка для открытия меню -->
@@ -19,26 +22,151 @@
         <div class="container">
             <div class="header-left">
                 <a href="index.html" class="logo">MARK<span>INSIDE</span></a>
-<nav>
-    <ul>
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="catalog.html">Каталог</a></li>
-        <li><a href="configurator.html">Конструктор ПК</a></li>
-        <li><a href="cart.html">Корзина</a></li>
-        <li><a href="aboutus.html">О нас</a></li>
-        <li><a href="contacts.html">Контакты</a></li>
-        <li><a href="addinfo.html">Дополнительно</a></li>
-        <li><a href="register.html">Вход/Регистрация</a></li>
-    </ul>
-</nav>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li class="has-submenu">
+                            <a href="catalog.html">Каталог</a>
+                            <div class="submenu">
+                                <div class="has-submenu-l2">
+                                    <a href="#">Готовые ПК</a>
+                                    <div class="submenu-l2">
+                                        <a href="#">Игровые ПК</a>
+                                        <a href="#">Рабочие ПК</a>
+                                        <a href="#">Хз че написать ПК</a>
+                                    </div>
+                                </div>
+                                <div class="has-submenu-l2">
+                                    <a href="components.html">Комплектующие</a>
+                                    <div class="submenu-l2">
+                                        <a href="#">Процессоры</a>
+                                        <a href="#">Видеокарты</a>
+                                        <a href="#">Материнские платы</a>
+                                        <a href="#">Оперативная память</a>
+                                    </div>
+                                </div>
+                                <a href="laptops.html">Ноутбуки</a>
+                            </div>
+                        </li>
+                        <li class="has-submenu">
+                            <a href="configurator.html" class="active">Конструктор ПК</a>
+                            <div class="submenu">
+                                <a href="configurator.html">Конфигуратор ПК</a>
+                                <a href="helpwithcreating.html">Помощь с подбором комплектующих</a>
+                            </div>
+                        </li>
+                        <li><a href="cart.html">Корзина</a></li>
+                        <li class="has-submenu">
+                            <a href="aboutus.html">О нас</a>
+                            <div class="submenu">
+                                <a href="team.html">Наша команда</a>
+                                <a href="history.html">История компании</a>
+                            </div>
+                        </li>
+                        <li><a href="contacts.html">Контакты</a></li>
+                        <li><a href="addinfo.html">Дополнительно</a></li>
+                        <li><a href="register.html">Вход/Регистрация</a></li>
+                    </ul>
+                </nav>
+                <!-- Логотип внизу -->
+                <div class="sidebar-footer">
+                    <img src="favicon-96x96.png" alt="Логотип MARKINSIDE" class="sidebar-logo">
+                </div>
             </div>
         </div>
     </header>
+    <div id="overlay" class="overlay"></div>
 
     <section class="hero">
         <div class="container">
-            <h1>Какие то буквы</h1>
-            <p>что то тут будет</p>
+            <h1 class="section-title">Помощь в сборке ПК</h1>
+            <p>Профессиональная консультация и подбор компонентов</p>
+            <div class="configurator-buttons">
+                <a href="helpwithcreating.html" class="btn btn-large btn-primary">Создание индивидуального ПК</a>
+                <a href="configurator.html" class="btn btn-large btn-primary">Конструктор ПК</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="help-section">
+        <div class="container">
+            <div class="help-container">
+                <h2>Заказать помощь в сборке</h2>
+                <p>Заполните форму, и наш специалист свяжется с вами для консультации и подбора оптимальной конфигурации</p>
+                
+                <form class="help-form" id="pc-help-form" action="https://formspree.io/f/meogezow" method="POST">
+                    <input type="hidden" name="_language" value="ru">
+                    <input type="hidden" name="_subject" value="Новая заявка на сборку ПК">
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+                    
+                    <div class="form-group">
+                        <label for="name">Ваше имя*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Номер телефона*</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="+7 (___) ___-__-__">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purpose">Основное назначение ПК*</label>
+                        <select id="purpose" name="purpose" required>
+                            <option value="">Выберите назначение</option>
+                            <option value="gaming">Игровой компьютер</option>
+                            <option value="work">Рабочая станция</option>
+                            <option value="graphics">Графика и дизайн</option>
+                            <option value="video">Видеомонтаж</option>
+                            <option value="home">Домашний/офисный</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Бюджет (руб.)</label>
+                        <div class="budget-range">
+                            <input type="range" id="budget" name="budget" min="100000" max="500000" step="5000" value="250000">
+                            <span class="budget-value" id="budget-value">250 000 ₽</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="components">Уже есть комплектующие?</label>
+                        <input type="text" id="components" name="components" placeholder="Например: видеокарта RTX 3080, корпус NZXT">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="preferences">Предпочтения и особые требования</label>
+                        <textarea id="preferences" name="preferences" placeholder="Например: нужна тихая система, предпочтение AMD, RGB-подсветка"></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="help-features">
+                <div class="feature-card">
+                    <h3>Профессиональный подбор</h3>
+                    <p>Наши специалисты подберут оптимальные компоненты с учетом ваших задач и бюджета</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Совместимость гарантирована</h3>
+                    <p>Мы проверяем все компоненты на совместимость, чтобы избежать проблем</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Экономия времени</h3>
+                    <p>Не тратьте часы на изучение характеристик - мы сделаем это за вас</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -47,7 +175,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>MARKINSIDE</h3>
-                    <p></p>
+                    <p>Магазин компьютерной техники</p>
                 </div>
                 
                 <div class="footer-column">
@@ -72,8 +200,8 @@
                 <div class="footer-column">
                     <h3>Контакты</h3>
                     <ul>
-                        <li>Иркутск делай да</li>
-                        <li>+7 ну тут цифры какие то</li>
+                        <li>Иркутск, ул. Примерная, 123</li>
+                        <li>+7 (123) 456-78-90</li>
                         <li>info@PIXELPC.рф</li>
                         <li>Ежедневно 10:00-20:00</li>
                     </ul>
@@ -85,8 +213,7 @@
             </div>
         </div>
     </footer>
-    <script src="configurator.js"></script>
-    
+
     <!-- Иконка корзины -->
     <a href="cart.html" class="cart-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -97,6 +224,50 @@
         <div class="cart-count">0</div>
     </a>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script>
+        // Маска для телефона
+        $(document).ready(function() {
+            $("#phone").mask("+7 (999) 999-99-99");
+            
+            // Обновление значения бюджета
+            $("#budget").on('input', function() {
+                const value = parseInt(this.value).toLocaleString('ru-RU');
+                $("#budget-value").text(`${value} ₽`);
+            });
+            
+            // Обработка отправки формы
+            $('#pc-help-form').on('submit', function(e) {
+                const phone = $("#phone").val();
+                const name = $("#name").val();
+                const purpose = $("#purpose").val();
+                
+                // Проверка обязательных полей
+                if (!name) {
+                    alert('Пожалуйста, введите ваше имя');
+                    e.preventDefault();
+                    return;
+                }
+                
+                if (!purpose) {
+                    alert('Пожалуйста, укажите назначение ПК');
+                    e.preventDefault();
+                    return;
+                }
+                
+                if (!/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phone)) {
+                    alert('Пожалуйста, введите корректный номер телефона');
+                    e.preventDefault();
+                    return;
+                }
+                
+                // Показываем сообщение о отправке
+                alert('Отправляем вашу заявку...');
+            });
+        });
+    </script>
+    <script src="configurator.js"></script>
     <script src="cart.js"></script>
 </body>
 </html>
