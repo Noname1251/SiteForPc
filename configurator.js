@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cooling: null
     };
     
-    let totalPrice = 0; // Начальная цена с выбранным процессором
+    let totalPrice = 0;
 
     // Переключение между шагами
     steps.forEach(step => {
@@ -128,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('add-to-cart').disabled = !allSelected;
     }
     
-
     // Инициализация конфигуратора
     updateTotalPrice();
     checkAddToCartButton();
@@ -196,26 +195,4 @@ document.addEventListener('DOMContentLoaded', function() {
             addToCart();
         }
     }
-});
-
-// Для помощи со сборкой
-// Обработчик для ползунка бюджета
-const budgetSlider = document.getElementById('budget');
-const budgetValue = document.getElementById('budget-value');
-
-budgetSlider.addEventListener('input', function() {
-    const value = parseInt(this.value).toLocaleString('ru-RU');
-    budgetValue.textContent = `${value} ₽`;
-});
-
-// Обработчик отправки формы
-const helpForm = document.getElementById('pc-help-form');
-
-helpForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Здесь можно добавить AJAX-запрос для отправки данных
-    alert('Ваша заявка принята! Наш специалист свяжется с вами в ближайшее время.');
-    helpForm.reset();
-    budgetValue.textContent = '100 000 ₽';
 });
