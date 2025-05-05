@@ -167,6 +167,54 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         cartItemsContainer.innerHTML = itemsHTML;
+        
+        cart.forEach(item => {
+            if (item.components) {
+                // Это сборка из конфигуратора
+                itemsHTML += `
+                    <div class="cart-item" data-id="${item.id}">
+                        <div class="item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">${item.name}</h3>
+                            <div class="components-list">
+                                ${Object.values(item.components).map(comp => 
+                                    `<div class="component">${comp.name}</div>`
+                                ).join('')}
+                            </div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn minus">−</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="item-total">${(item.price * item.quantity).toLocaleString()} ₽</div>
+                        <button class="item-remove">×</button>
+                    </div>
+                `;
+            } else {
+                // Обычный товар
+                itemsHTML += `
+                    <div class="cart-item" data-id="${item.id}">
+                        <div class="item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="item-details">
+                            <h3 class="item-name">${item.name}</h3>
+                            <div class="item-price">${item.price.toLocaleString()} ₽</div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn minus">−</button>
+                            <span class="quantity">${item.quantity}</span>
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                        <div class="item-total">${(item.price * item.quantity).toLocaleString()} ₽</div>
+                        <button class="item-remove">×</button>
+                    </div>
+                `;
+            }
+        });
     }
     
     // Обновление итоговой суммы

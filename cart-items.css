@@ -71,3 +71,36 @@
     color: #ff4444;
     padding: 0 5px;
 }
+/* Стили для компонентов сборки */
+.components-list {
+    margin-top: 8px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.components-list .component {
+    margin-bottom: 4px;
+    padding-left: 12px;
+    position: relative;
+}
+
+.components-list .component::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #7b68ee;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-wrap: wrap;
+    }
+    
+    .item-right-section {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+}
