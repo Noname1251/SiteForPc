@@ -1,11 +1,14 @@
 :root {
-    --primary-color: #0d0d0d;
-    --accent-color: #7b68ee;
-    --light-color: #ecf0f1;
-    --dark-color: #3c3e40;
-    --card-color: #6f7073;
+    --primary-color: #121212;        /* Основной фон сайта */
+    --accent-color: #8a2be2;         /* Акцентный цвет (кнопки, заголовки) */
+    --text-primary: #f5f7fa;         /* Основной текст */
+    --text-secondary: #4a4a4a;       /* Второстепенный текст */
+    --hover-color: #8a2be2;          /* Цвет при наведении */
+    --card-color: #1e1e1e;           /* Фон карточек */
+    --border-color: #2a2a2a;         /* Цвет границ */
     --menu-item-gap: 8px;
     --submenu-offset: 15px;
+    --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* Base styles */
@@ -13,8 +16,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    color: var(--light-color);
-    background-color: var(--dark-color);
+    color: var(--text-primary); 
+    background-color: var(--primary-color);
     line-height: 1.6;
 }
 
@@ -24,6 +27,22 @@ body {
     margin: 0 auto;
 }
 
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--accent-color);
+    margin-top: 0;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
 /* Overlay */
 .overlay {
     position: fixed;
@@ -31,7 +50,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     z-index: 900;
     opacity: 0;
     visibility: hidden;
@@ -108,15 +127,16 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh; /* Занимает всю высоту экрана */
+    height: 100vh;
     padding: 1rem;
     box-sizing: border-box;
-    justify-content: space-between; /* Распределяет пространство между элементами */
+    justify-content: space-between;
 }
+
 .logo {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     text-align: center;
     padding: 20px 0;
@@ -151,7 +171,7 @@ nav ul li {
 
 nav ul li a {
     display: block;
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s;
@@ -162,7 +182,7 @@ nav ul li a {
 
 nav ul li a:hover,
 nav ul li a.active {
-    background-color: var(--accent-color);
+    background-color: var(--hover-color);
     color: white;
 }
 
@@ -177,11 +197,13 @@ nav ul li a.active {
     margin-left: 8px;
     font-size: 0.9em;
     transition: transform 0.3s ease;
+    color: var(--text-secondary);
 }
 
 .has-submenu:hover > a::after,
 .has-submenu-l2:hover > a::after {
     transform: translateX(3px);
+    color: var(--text-primary);
 }
 
 .submenu {
@@ -189,7 +211,7 @@ nav ul li a.active {
     left: 100%;
     top: -10px;
     width: 250px;
-    background-color: var(--primary-color);
+    background-color: var(--card-color);
     border-radius: 8px;
     box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
     opacity: 0;
@@ -204,7 +226,7 @@ nav ul li a.active {
 .submenu a {
     display: block;
     padding: 0.8rem 1rem;
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     transition: background-color 0.3s;
     border-radius: 6px;
@@ -212,7 +234,7 @@ nav ul li a.active {
 }
 
 .submenu a:hover {
-    background-color: var(--accent-color);
+    background-color: var(--hover-color);
 }
 
 /* Second level submenu */
@@ -225,7 +247,7 @@ nav ul li a.active {
     left: 100%;
     top: -10px;
     width: 250px;
-    background-color: var(--primary-color);
+    background-color: var(--card-color);
     border-radius: 8px;
     box-shadow: 2px 2px 15px rgba(0,0,0,0.3);
     opacity: 0;
@@ -240,15 +262,15 @@ nav ul li a.active {
 .submenu-l2 a {
     display: block;
     padding: 0.8rem 1rem;
-    color: white;
+    color: var(--text-primary);
     text-decoration: none;
     transition: background-color 0.3s;
     border-radius: 6px;
     margin: 4px 0;
-}cart
+}
 
 .submenu-l2 a:hover {
-    background-color: var(--accent-color);
+    background-color: var(--hover-color);
 }
 
 /* Show submenus on hover */
@@ -261,7 +283,7 @@ nav ul li:has(.submenu):hover .submenu,
 
 /* Sidebar footer */
 .sidebar-footer {
-    margin-top: auto; /* Прижимает к низу */
+    margin-top: auto;
     padding: 1.5rem;
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -292,12 +314,14 @@ nav ul li:has(.submenu):hover .submenu,
 .hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: var(--text-primary);
 }
 
 .hero p {
     font-size: 1.2rem;
     max-width: 700px;
     margin: 0 auto 2rem;
+    color: var(--text-primary);
 }
 
 /* Grid styles */
@@ -313,15 +337,13 @@ nav ul li:has(.submenu):hover .submenu,
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
-    color: white;
+    color: var(--accent-color);
 }
 
 /* Footer styles */
 footer {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/hero-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: white;
+    background: var(--primary-color);
+    color: var(--text-primary);
     padding: 3rem 0 1rem;
 }
 
@@ -335,7 +357,7 @@ footer {
 .footer-column h3 {
     margin-top: 0;
     font-size: 1.2rem;
-    color: white;
+    color: var(--accent-color);
     text-align: center;
 }
 
@@ -351,19 +373,19 @@ footer {
 }
 
 .footer-column ul li a {
-    color: #bdc3c7;
+    color: var(--text-secondary);
     text-decoration: none;
 }
 
 .footer-column ul li a:hover {
-    color: white;
+    color: var(--hover-color);
 }
 
 .copyright {
     text-align: center;
     padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.1);
-    color: #bdc3c7;
+    color: var(--text-secondary);
     font-size: 0.9rem;
 }
 
@@ -389,6 +411,7 @@ footer {
 
 .cart-icon:hover {
     transform: scale(1.1);
+    background: var(--hover-color);
 }
 
 .cart-count {
@@ -406,6 +429,7 @@ footer {
     font-size: 12px;
     font-weight: bold;
 }
+
 /* Cart styles */
 .cart-container {
     padding: 2rem 1rem;
@@ -415,7 +439,7 @@ footer {
 .cart-section h1 {
     text-align: center;
     margin-bottom: 2rem;
-    color: white;
+    color: var(--text-primary);
 }
 
 .cart-items {
@@ -440,7 +464,7 @@ footer {
     width: 100px;
     height: 100px;
     margin-right: 1.5rem;
-    background: #f5f5f5;
+    background: #2a2a2a;
     border-radius: 4px;
     display: flex;
     align-items: center;
@@ -460,7 +484,7 @@ footer {
 .cart-item-title {
     font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
-    color: white;
+    color: var(--text-primary);
 }
 
 .cart-item-price {
@@ -499,8 +523,10 @@ footer {
     text-align: center;
     margin: 0 0.5rem;
     padding: 0.3rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background: var(--card-color);
+    color: var(--text-primary);
 }
 
 .remove-item {
@@ -525,7 +551,7 @@ footer {
 .empty-cart-message p {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
-    color: white;
+    color: var(--text-primary);
 }
 
 .cart-summary {
@@ -543,7 +569,7 @@ footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: 1rem;
-    color: white;
+    color: var(--text-primary);
 }
 
 .summary-row.total {
@@ -567,13 +593,261 @@ footer {
 }
 
 .checkout-btn:hover {
-    filter: brightness(0.9);
+    background: var(--hover-color);
 }
 
 .checkout-btn:disabled {
-    background: #ccc;
+    background: var(--text-secondary);
     cursor: not-allowed;
 }
+
 .help-section .budget-value {
+    color: var(--text-primary);
+}
+
+/* Card styles */
+.category-card,
+.product-card,
+.component-card {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: var(--card-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.category-img,
+.product-img,
+.component-img {
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-img {
+    height: 220px;
+}
+
+.product-img {
+    height: 240px;
+}
+
+.component-img {
+    height: 160px;
+    margin-bottom: 1rem;
+}
+
+.category-img img,
+.product-img img,
+.component-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover,
+.product-card:hover,
+.component-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.category-card:hover img,
+.product-card:hover img,
+.component-card:hover img {
+    transform: scale(1.05);
+}
+
+.category-info,
+.product-info,
+.component-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.component-card.selected {
+    border: 2px solid var(--accent-color);
+    background-color: rgba(138, 43, 226, 0.15);
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
+}
+
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--accent-color);
     color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.category-info h3,
+.product-info h3,
+.component-info h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.category-info p,
+.product-info p,
+.component-info p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    flex-grow: 1;
+}
+
+.price {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.old-price {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    margin-top: 0.2rem;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    filter: brightness(1);
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.catalog-btn {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.view-all-btn {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+.configurator-buttons {
+    background: rgba(0, 0, 0, 0);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.catalog-section.configurator .btn-large {
+    width: auto;
+    padding: 1rem 3rem;
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-dark-wrapper {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    transition: background-color 0.3s;
+}
+
+.btn-dark-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Responsive grid styles */
+.product-grid,
+.component-options,
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+    width: 100%;
+}
+
+@media (min-width: 1000px) {
+    .product-grid,
+    .component-options,
+    .category-grid.centered-grid {
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 999px) and (min-width: 600px) {
+    .product-grid,
+    .component-options,
+    .category-grid {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 599px) {
+    .product-grid,
+    .component-options,
+    .category-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
 }

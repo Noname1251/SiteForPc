@@ -48,7 +48,7 @@
                                 <a href="laptops.html">Ноутбуки</a>
                             </div>
                         </li>
-                        <li class="has-submenu" >
+                        <li class="has-submenu">
                             <a href="configurator.html" class="active">Конструктор ПК</a>
                             <div class="submenu">
                                 <a href="configurator.html">Конфигуратор ПК</a>
@@ -80,24 +80,36 @@
 
     <section class="hero">
         <div class="container">
-            <h1>Конфигуратор</h1>
-            <p>опопопоп</p>
+            <h1>Конфигуратор ПК</h1>
+            <p>Соберите компьютер своей мечты из совместимых компонентов</p>
             <div class="configurator-buttons">
-                <a href="helpwithcreating.html" class="btn btn-large btn-primary">Создание индивидуального ПК</a>
-                <a href="configurator.html" class="btn btn-large btn-primary">Конструктор ПК</a>
+                <a href="helpwithcreating.html" class="btn btn-large btn-primary">Помощь с подбором</a>
+                <a href="configurator.html" class="btn btn-large btn-primary">Начать сборку</a>
             </div>
         </div>
     </section>
 
     <section class="configurator-page">
         <div class="container">
+            <!-- Горизонтальный блок предпросмотра сборки -->
+            <div class="horizontal-build-preview">
+                <div class="selected-components-horizontal">
+                    <div class="selected-component-horizontal">
+                        <img src="images/cpu-intel.jpg" alt="Процессор">
+                        <span>Intel Core i9-13900K</span>
+                    </div>
+                    <!-- Здесь будут добавляться другие выбранные компоненты -->
+                </div>
+                <div class="total-price-horizontal">
+                    <span>Итого:</span>
+                    <strong id="total-price">49 990 ₽</strong>
+                </div>
+            </div>
 
-            <div style="border-bottom: 1px solid #ccc; margin: 20px 0;"></div>
-            
             <div class="configurator-layout">
-                <!-- Блок выбора компонентов -->
-                <div class="components-selector">
-                    <div class="configurator-steps">
+                <!-- Левая колонка - выбор типа компонентов -->
+                <div class="components-type-selector">
+                    <div class="configurator-steps-vertical">
                         <div class="step active" data-step="cpu">
                             <span>1</span>
                             <p>Процессор</p>
@@ -122,8 +134,19 @@
                             <span>6</span>
                             <p>Охлаждение</p>
                         </div>
+                        <div class="step" data-step="frame">
+                            <span>7</span>
+                            <p>Корпус</p>
+                        </div>
+                        <div class="step" data-step="powerunit">
+                            <span>8</span>
+                            <p>Блок питания</p>
+                        </div>
                     </div>
+                </div>
 
+                <!-- Основная область - выбор конкретных компонентов -->
+                <div class="components-main">
                     <div class="components-list" id="cpu">
                         <h2>Выберите процессор</h2>
                         <div class="component-options">
@@ -145,6 +168,26 @@
                                     <h3>AMD Ryzen 9 7950X</h3>
                                     <p>16 ядер, 5.7 ГГц, AM5</p>
                                     <div class="price">45 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cpu" data-id="intel-i7" data-price="32990">
+                                <div class="component-img">
+                                    <img src="images/cpu-intel-i7.jpg" alt="Intel Core i7">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Intel Core i7-13700K</h3>
+                                    <p>16 ядер, 5.4 ГГц, LGA 1700</p>
+                                    <div class="price">32 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cpu" data-id="amd-ryzen7" data-price="28990">
+                                <div class="component-img">
+                                    <img src="images/cpu-amd-ryzen7.jpg" alt="AMD Ryzen 7">
+                                </div>
+                                <div class="component-info">
+                                    <h3>AMD Ryzen 7 7700X</h3>
+                                    <p>8 ядер, 5.4 ГГц, AM5</p>
+                                    <div class="price">28 990 ₽</div>
                                 </div>
                             </div>
                         </div>
@@ -173,10 +216,29 @@
                                     <div class="price">89 990 ₽</div>
                                 </div>
                             </div>
+                            <div class="component-card" data-component="gpu" data-id="rtx4080" data-price="89990">
+                                <div class="component-img">
+                                    <img src="images/gpu-rtx4080.jpg" alt="NVIDIA RTX 4080">
+                                </div>
+                                <div class="component-info">
+                                    <h3>NVIDIA RTX 4080</h3>
+                                    <p>16GB GDDR6X, 9728 ядер</p>
+                                    <div class="price">89 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="gpu" data-id="rtx4070" data-price="64990">
+                                <div class="component-img">
+                                    <img src="images/gpu-rtx4070.jpg" alt="NVIDIA RTX 4070">
+                                </div>
+                                <div class="component-info">
+                                    <h3>NVIDIA RTX 4070 Ti</h3>
+                                    <p>12GB GDDR6X, 7680 ядер</p>
+                                    <div class="price">64 990 ₽</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Добавлены новые секции для других компонентов -->
                     <div class="components-list hidden" id="ram">
                         <h2>Выберите оперативную память</h2>
                         <div class="component-options">
@@ -198,6 +260,26 @@
                                     <h3>G.Skill Trident Z 64GB</h3>
                                     <p>DDR5 6000MHz (2x32GB)</p>
                                     <div class="price">29 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="ram" data-id="ram-16gb" data-price="8990">
+                                <div class="component-img">
+                                    <img src="images/ram-16gb.jpg" alt="RAM 16GB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Kingston Fury 16GB</h3>
+                                    <p>DDR5 5200MHz (2x8GB)</p>
+                                    <div class="price">8 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="ram" data-id="ram-32rgb" data-price="18990">
+                                <div class="component-img">
+                                    <img src="images/ram-32rgb.jpg" alt="RAM 32GB RGB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>G.Skill Trident Z RGB 32GB</h3>
+                                    <p>DDR5 6000MHz (2x16GB)</p>
+                                    <div class="price">18 990 ₽</div>
                                 </div>
                             </div>
                         </div>
@@ -226,83 +308,219 @@
                                     <div class="price">21 990 ₽</div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Блок предпросмотра сборки -->
-                <div class="build-preview">
-                    <div class="build-summary">
-                        <h2 class="section-title">Ваша сборка</h2>
-                        <div class="selected-components">
-                            <div class="selected-component" data-component="cpu">
-                                <div class="component-header">
-                                    <h3>Процессор</h3>
-                                    <div class="price component-price">49 990 ₽</div>
+                            <div class="component-card" data-component="motherboard" data-id="mb-intel-mid" data-price="17990">
+                                <div class="component-img">
+                                    <img src="images/mb-intel-mid.jpg" alt="Intel Motherboard Mid">
                                 </div>
-                                <p class="component-name">Intel Core i9-13900K</p>
+                                <div class="component-info">
+                                    <h3>MSI MPG Z790 Edge</h3>
+                                    <p>LGA 1700, Intel Z790</p>
+                                    <div class="price">17 990 ₽</div>
+                                </div>
                             </div>
-                            <div class="selected-component empty" data-component="gpu">
-                                <div class="component-header">
-                                    <h3>Видеокарта</h3>
-                                    <div class="price component-price hidden">0 ₽</div>
+                            <div class="component-card" data-component="motherboard" data-id="mb-amd-mid" data-price="15990">
+                                <div class="component-img">
+                                    <img src="images/mb-amd-mid.jpg" alt="AMD Motherboard Mid">
                                 </div>
-                                <p class="component-name">Не выбрана</p>
-                            </div>
-                            <div class="selected-component empty" data-component="ram">
-                                <div class="component-header">
-                                    <h3>Оперативная память</h3>
-                                    <div class="price component-price hidden">0 ₽</div>
+                                <div class="component-info">
+                                    <h3>ASUS TUF B650-PLUS</h3>
+                                    <p>Socket AM5, AMD B650</p>
+                                    <div class="price">15 990 ₽</div>
                                 </div>
-                                <p class="component-name">Не выбрана</p>
-                            </div>
-                            <div class="selected-component empty" data-component="motherboard">
-                                <div class="component-header">
-                                    <h3>Материнская плата</h3>
-                                    <div class="price component-price hidden">0 ₽</div>
-                                </div>
-                                <p class="component-name">Не выбрана</p>
-                            </div>
-                            <div class="selected-component empty" data-component="storage">
-                                <div class="component-header">
-                                    <h3>Накопитель</h3>
-                                    <div class="price component-price hidden">0 ₽</div>
-                                </div>
-                                <p class="component-name">Не выбран</p>
-                            </div>
-                            <div class="selected-component empty" data-component="cooling">
-                                <div class="component-header">
-                                    <h3>Охлаждение</h3>
-                                    <div class="price component-price hidden">0 ₽</div>
-                                </div>
-                                <p class="component-name">Не выбрано</p>
                             </div>
                         </div>
-                        <div class="total-price">
-                            <h3>Итого:</h3>
-                            <div class="price" id="total-price">49 990 ₽</div>
-                        </div>
-                        <button class="btn btn-large" id="add-to-cart" disabled>Добавить в корзину</button>
                     </div>
 
-                    <div class="compatibility-check">
-                        <h3>Проверка совместимости</h3>
-                        <div class="compatibility-item" data-type="cpu-mb">
-                            <span>✓</span> Процессор и материнская плата: совместимы
-                        </div>
-                        <div class="compatibility-item warning" data-type="gpu">
-                            <span>!</span> Не выбрана видеокарта
-                        </div>
-                        <div class="compatibility-item warning" data-type="ram">
-                            <span>!</span> Не выбрана оперативная память
+                    <div class="components-list hidden" id="storage">
+                        <h2>Выберите накопители</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="storage" data-id="ssd-1tb" data-price="7990">
+                                <div class="component-img">
+                                    <img src="images/ssd-1tb.jpg" alt="SSD 1TB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Samsung 980 Pro 1TB</h3>
+                                    <p>NVMe PCIe 4.0, 7000 МБ/с</p>
+                                    <div class="price">7 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="storage" data-id="ssd-2tb" data-price="12990">
+                                <div class="component-img">
+                                    <img src="images/ssd-2tb.jpg" alt="SSD 2TB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>WD Black SN850X 2TB</h3>
+                                    <p>NVMe PCIe 4.0, 7300 МБ/с</p>
+                                    <div class="price">12 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="storage" data-id="hdd-4tb" data-price="8990">
+                                <div class="component-img">
+                                    <img src="images/hdd-4tb.jpg" alt="HDD 4TB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Seagate BarraCuda 4TB</h3>
+                                    <p>3.5", 5400 RPM, SATA III</p>
+                                    <div class="price">8 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="storage" data-id="ssd-500gb" data-price="4990">
+                                <div class="component-img">
+                                    <img src="images/ssd-500gb.jpg" alt="SSD 500GB">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Crucial P5 Plus 500GB</h3>
+                                    <p>NVMe PCIe 4.0, 6600 МБ/с</p>
+                                    <div class="price">4 990 ₽</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <div class="components-list hidden" id="cooling">
+                        <h2>Выберите систему охлаждения</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="cooling" data-id="cooler-aio" data-price="12990">
+                                <div class="component-img">
+                                    <img src="images/cooler-aio.jpg" alt="AIO Cooler">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Corsair iCUE H150i Elite</h3>
+                                    <p>360mm, RGB, жидкостное</p>
+                                    <div class="price">12 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cooling" data-id="cooler-air" data-price="5990">
+                                <div class="component-img">
+                                    <img src="images/cooler-air.jpg" alt="Air Cooler">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Noctua NH-D15</h3>
+                                    <p>Двойной вентилятор, воздушное</p>
+                                    <div class="price">5 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cooling" data-id="cooler-aio240" data-price="8990">
+                                <div class="component-img">
+                                    <img src="images/cooler-aio240.jpg" alt="AIO 240mm">
+                                </div>
+                                <div class="component-info">
+                                    <h3>NZXT Kraken X53</h3>
+                                    <p>240mm, RGB, жидкостное</p>
+                                    <div class="price">8 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="cooling" data-id="cooler-air-mid" data-price="3990">
+                                <div class="component-img">
+                                    <img src="images/cooler-air-mid.jpg" alt="Air Cooler Mid">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Cooler Master Hyper 212</h3>
+                                    <p>Одиночный вентилятор, воздушное</p>
+                                    <div class="price">3 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="components-list hidden" id="frame">
+                        <h2>Выберите корпус</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="frame" data-id="case-full" data-price="14990">
+                                <div class="component-img">
+                                    <img src="images/case-full.jpg" alt="Full Tower Case">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Lian Li PC-O11 Dynamic</h3>
+                                    <p>Full Tower, RGB, стекло</p>
+                                    <div class="price">14 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="frame" data-id="case-mid" data-price="8990">
+                                <div class="component-img">
+                                    <img src="images/case-mid.jpg" alt="Mid Tower Case">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Corsair 4000D Airflow</h3>
+                                    <p>Mid Tower, черный, вентиляция</p>
+                                    <div class="price">8 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="frame" data-id="case-compact" data-price="6990">
+                                <div class="component-img">
+                                    <img src="images/case-compact.jpg" alt="Compact Case">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Fractal Design Meshify C</h3>
+                                    <p>Compact Mid Tower, сетка</p>
+                                    <div class="price">6 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="frame" data-id="case-mini" data-price="4990">
+                                <div class="component-img">
+                                    <img src="images/case-mini.jpg" alt="Mini Tower Case">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Cooler Master NR200</h3>
+                                    <p>Mini ITX, компактный</p>
+                                    <div class="price">4 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="components-list hidden" id="powerunit">
+                        <h2>Выберите блок питания</h2>
+                        <div class="component-options">
+                            <div class="component-card" data-component="powerunit" data-id="psu-1000w" data-price="17990">
+                                <div class="component-img">
+                                    <img src="images/psu-1000w.jpg" alt="1000W PSU">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Corsair RM1000x</h3>
+                                    <p>1000W, 80+ Gold, модульный</p>
+                                    <div class="price">17 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="powerunit" data-id="psu-850w" data-price="12990">
+                                <div class="component-img">
+                                    <img src="images/psu-850w.jpg" alt="850W PSU">
+                                </div>
+                                <div class="component-info">
+                                    <h3>Seasonic Focus GX-850</h3>
+                                    <p>850W, 80+ Gold, модульный</p>
+                                    <div class="price">12 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="powerunit" data-id="psu-750w" data-price="9990">
+                                <div class="component-img">
+                                    <img src="images/psu-750w.jpg" alt="750W PSU">
+                                </div>
+                                <div class="component-info">
+                                    <h3>EVGA SuperNOVA 750 GT</h3>
+                                    <p>750W, 80+ Gold, модульный</p>
+                                    <div class="price">9 990 ₽</div>
+                                </div>
+                            </div>
+                            <div class="component-card" data-component="powerunit" data-id="psu-650w" data-price="7990">
+                                <div class="component-img">
+                                    <img src="images/psu-650w.jpg" alt="650W PSU">
+                                </div>
+                                <div class="component-info">
+                                    <h3>be quiet! Pure Power 11</h3>
+                                    <p>650W, 80+ Gold, полумодульный</p>
+                                    <div class="price">7 990 ₽</div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+
+            <!-- Кнопка добавления в корзину -->
+            <div class="configurator-action">
+                <button class="btn btn-large btn-primary" id="add-to-cart" disabled>Добавить в корзину</button>
             </div>
         </div>
     </section>
-
-    <div style="height: 30px;"></div> <!-- Пространство -->
 
     <footer>
         <div class="container">
@@ -347,8 +565,7 @@
             </div>
         </div>
     </footer>
-    <script src="configurator.js"></script>
-    
+
     <!-- Иконка корзины -->
     <a href="cart.html" class="cart-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -359,6 +576,7 @@
         <div class="cart-count">0</div>
     </a>
 
+    <script src="configurator.js"></script>
     <script src="cart.js"></script>
 </body>
 </html>

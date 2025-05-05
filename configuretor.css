@@ -1,87 +1,189 @@
-/* Layout конфигуратора */
+/* Основные стили конфигуратора */
+.configurator-page {
+    padding: 2rem 0;
+}
+
 .configurator-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
+    display: flex;
     gap: 2rem;
 }
 
-.configurator-steps {
-    display: flex;
-    justify-content: space-between;
+/* Горизонтальный блок предпросмотра сборки */
+.horizontal-build-preview {
+    background: var(--card-color);
+    border-radius: 8px;
+    padding: 1.5rem; /* Увеличили padding */
     margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    height: 100px; /* Фиксированная высота */
+    min-height: 100px; /* Минимальная высота */
 }
 
-.step {
+.selected-components-horizontal {
+    display: flex;
+    gap: 1.5rem; /* Увеличили отступ между элементами */
+    overflow-x: auto;
+    flex-grow: 1;
+    padding: 0.5rem 1rem; /* Увеличили padding */
+    scrollbar-width: thin;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    height: 100%; /* Занимает всю высоту родителя */
+}
+
+.selected-component-horizontal {
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
+    border-radius: 8px; /* Увеличили радиус */
+    padding: 1rem 1.5rem; /* Увеличили padding */
+    gap: 1rem; /* Увеличили отступ между элементами */
+    min-width: max-content;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+    height: 70px; /* Фиксированная высота элементов */
+    box-sizing: border-box;
+}
+
+.selected-component-horizontal img {
+    width: 40px; /* Увеличили размер иконок */
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.selected-component-horizontal span {
+    font-size: 1rem; /* Увеличили размер текста */
+    white-space: nowrap;
+}
+
+.total-price-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 1.5rem; /* Увеличили padding */
+    font-size: 1.2rem; /* Увеличили размер текста */
+    flex-shrink: 0;
+    height: 100%; /* Занимает всю высоту родителя */
+    align-items: center; /* Выравнивание по центру */
+}
+
+/* Левая колонка с типами компонентов */
+.components-type-selector {
+    width: 240px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.configurator-steps-vertical {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: all 0.3s;
+    gap: 0.5rem;
+    position: sticky;
+    top: 1rem;
 }
 
-.step.active {
-    opacity: 1;
+.configurator-steps-vertical .step {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+.configurator-steps-vertical .step:hover {
+    background: rgba(138, 43, 226, 0.1);
+    border-color: var(--accent-color);
+}
+
+.configurator-steps-vertical .step.active {
+    background: rgba(138, 43, 226, 0.2);
+    border-color: var(--accent-color);
     font-weight: bold;
 }
 
-.step span {
+.configurator-steps-vertical .step span {
+    width: 26px;
+    height: 26px;
+    background: var(--card-color);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30px;
-    height: 30px;
-    background-color: var(--light-color);
-    border-radius: 50%;
-    margin-bottom: 0.5rem;
-    color: white !important;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    border: 1px solid var(--border-color);
 }
 
-.step.active span {
-    background-color: var(--accent-color);
+.configurator-steps-vertical .step.active span {
+    background: var(--accent-color);
     color: white;
+    border-color: transparent;
 }
 
-.components-list.hidden {
-    display: none;
+.configurator-steps-vertical .step p {
+    margin: 0;
+    white-space: nowrap;
 }
 
-/* Стили для карточек компонентов */
+/* Основная область с компонентами */
+.components-main {
+    flex-grow: 1;
+}
+
+.components-list {
+    margin-bottom: 2rem;
+}
+
+.components-list h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
 .component-options {
     display: grid;
-    gap: 2rem;
+    gap: 1.5rem;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .component-card {
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.3s ease;
     background: var(--card-color);
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .component-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
 }
 
 .component-card.selected {
-    border-color: var(--accent-color);
-    background-color: rgba(231, 76, 60, 0.05);
+    border: 2px solid var(--accent-color);
+    background-color: rgba(138, 43, 226, 0.1);
+    box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.2);
 }
 
 .component-img {
-    height: 120px;
-    margin-bottom: 1rem;
+    height: 140px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
+    background: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .component-img img {
@@ -98,234 +200,66 @@
 }
 
 .component-info h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: white;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1.1rem;
 }
 
-/* Стили блока предпросмотра */
-.build-preview {
-    background: white;
-    border-radius: 8px;
-    padding: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 1rem;
+.component-info p {
+    margin: 0 0 1rem 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    flex-grow: 1;
 }
 
-.build-summary h2 {
-    margin-top: 0;
-    color: var(--primary-color);
-}
-
-.selected-components {
-    margin: 1.5rem 0;
-}
-
-.selected-component {
-    padding: 1rem 0;
-    border-bottom: 1px solid #eee;
-}
-
-.selected-component.empty {
-    opacity: 0.6;
-}
-
-.component-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-}
-
-.component-header h3 {
-    margin: 0;
-    font-size: 1rem;
-    color: var(--primary-color);
-}
-
-.component-name {
-    margin: 0;
-    color: #555;
-}
-
-.selected-component.empty .component-name {
-    color: #999;
-    font-style: italic;
-}
-
-.component-price {
+.price {
+    color: var(--accent-color);
     font-weight: bold;
-    color: #7b68ee;
+    font-size: 1.1rem;
 }
 
-.selected-component.empty .component-price {
+/* Адаптивность */
+@media (max-width: 992px) {
+    .configurator-layout {
+        flex-direction: column;
+    }
+    
+    .components-type-selector {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .configurator-steps-vertical {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        position: relative;
+    }
+    
+    .configurator-steps-vertical .step {
+        min-width: 150px;
+    }
+    
+    .horizontal-build-preview {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .component-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .horizontal-build-preview {
+        padding: 0.8rem;
+    }
+    
+    .selected-component-horizontal {
+        padding: 0.5rem;
+    }
+}
+.components-list.hidden {
     display: none;
-}
-
-.total-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2rem 0;
-    padding-top: 1rem;
-    border-top: 2px solid var(--primary-color);
-}
-
-.total-price h3 {
-    margin: 0;
-    font-size: 1.2rem;
-}
-
-#total-price {
-    font-size: 1.5rem;
-    color: #7b68ee;
-    font-weight: bold;
-}
-
-/* Проверка совместимости */
-.compatibility-check {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid #eee;
-}
-
-.compatibility-item {
-    padding: 0.5rem;
-    margin: 0.5rem 0;
-    border-radius: 4px;
-}
-
-.compatibility-item.success {
-    background-color: rgba(46, 204, 113, 0.1);
-    color: #2ecc71;
-}
-
-.compatibility-item.warning {
-    background-color: rgba(241, 196, 15, 0.1);
-    color: #f1c40f;
-}
-
-/* Кнопки конфигуратора */
-.configurator-buttons {
-    background: rgba(0, 0, 0, 0);
-    padding: 25px;
-    border-radius: 8px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.btn-primary {
-    background-color: #7b68ee;
-    color: white;
-}
-
-.btn-primary:hover {
-    filter: brightness(0.7);
-}
-
-#add-to-cart:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-/* Специфичные стили для этой страницы */
-.help-section {
-    padding: 3rem 0;
-}
-
-.help-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background: var(--card-color);
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.help-form {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.form-group label {
-    font-weight: bold;
-    color: white;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-.budget-range {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.budget-range input {
-    flex: 1;
-}
-
-.budget-value {
-    min-width: 80px;
-    text-align: center;
-    font-weight: bold;
-    color: var(--accent-color);
-}
-
-.form-submit {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-.help-features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.feature-card {
-    background: var(--card-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.feature-card h3 {
-    color: var(--accent-color);
-    margin-top: 0;
-}
-
-.feature-card p {
-    color: white;
-}
-/* Добавлено в конец файла */
-.form-group input[type="tel"] {
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    width: 100%;
-    box-sizing: border-box;
 }
