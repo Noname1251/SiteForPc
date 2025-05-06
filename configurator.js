@@ -128,16 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
             steps.forEach(s => s.classList.remove('active'));
             this.classList.add('active');
             
-            // Скрываем все списки компонентов
+            // Показываем соответствующий список компонентов
             componentLists.forEach(list => {
                 list.classList.add('hidden');
+                if (list.id === stepId) {
+                    list.classList.remove('hidden');
+                }
             });
-            
-            // Показываем только выбранный список компонентов
-            const activeList = document.getElementById(stepId);
-            if (activeList) {
-                activeList.classList.remove('hidden');
-            }
         });
     });
 
@@ -169,76 +166,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-// В configurator.js, в обработчике кнопки "Добавить в корзину"
-addToCartBtn.addEventListener('click', function() {
-    if (!checkCompleteness()) return;
-    
-    // Создаем объект сборки
-    const build = {
-        id: generateBuildId(), // Генерируем уникальный ID
-        name: "Кастомная сборка ПК",
-        components: selectedComponents,
-        price: totalPrice,
-        image: "images/custom-build.jpg", // Можно использовать изображение по умолчанию
-        quantity: 1
-    };
-    
-    // Добавляем сборку в корзину
-    addBuildToCart(build);
-    
-    alert(`Сборка добавлена в корзину! Общая стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`);
-});
-
-// Функция для генерации уникального ID сборки
-function generateBuildId() {
-    return 'build-' + Date.now().toString(36) + Math.random().toString(36).substr(2);
-}
-
-    // Функция добавления сборки в корзину
-    function addBuildToCart(build) {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Добавление в корзину
+    addToCartBtn.addEventListener('click', function() {
+        if (!checkCompleteness()) return;
         
-        // Проверяем, есть ли уже такая сборка в корзине
-        const existingIndex = cart.findIndex(item => item.id === build.id);
+        // Здесь должна быть логика добавления в корзину
+        console.log('Добавлено в корзину:', selectedComponents);
+        alert(`Сборка добавлена в корзину! Общая стоимость: ${totalPrice.toLocaleString('ru-RU')} ₽`);
         
-        if (existingIndex !== -1) {
-            // Если сборка уже есть, увеличиваем количество
-            cart[existingIndex].quantity += 1;
-        } else {
-            // Иначе добавляем новую сборку
-            cart.push(build);
-        }
-        
-        // Сохраняем обновленную корзину
-        localStorage.setItem('cart', JSON.stringify(cart));
-        
-        // Обновляем счетчик корзины
-        updateCartCount();
-    }
-
-    // Функция обновления счетчика корзины
-    function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        document.querySelectorAll('.cart-count').forEach(el => {
-            el.textContent = totalItems;
-        });
-    }
-
-        // ========== Инициализация ==========
-        function initConfigurator() {
-            updateComponentSelectionUI();
-            updateHorizontalPreview();
-            updateTotalPriceDisplay();
-            checkCompleteness();
-            
-            // Скрываем все списки компонентов
-            componentLists.forEach(list => {
-                list.classList.add('hidden');
-            });
-            
-            // Показываем первый шаг (процессоры)
-            document.querySelector('.step[data-step="cpu"]').click();
-        }
+        // Можно добавить редирект на страницу корзины
+        // window.location.href = 'cart.html';
     });
 
+    // ========== Инициализация ==========
+    function initConfigurator() {
+        updateComponentSelectionUI();
+        updateHorizontalPreview();
+        updateTotalPriceDisplay();
+        checkCompleteness();
+        
+        // Показываем первый шаг (процессоры)
+        document.querySelector('.step[data-step="cpu"]').click();
+    }
+
+    initConfigurator();
+});
