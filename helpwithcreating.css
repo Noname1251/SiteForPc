@@ -173,14 +173,15 @@
         text-align: left;
     }
 }
-/* Добавьте это в ваш helpwithcreating.css */
 
 /* Стили для карточек назначения ПК в одной строке */
 .purpose-options {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, minmax(200px, 300px)); /* Фиксируем 2 колонки */
+    justify-content: center; /* Центрируем сетку */
     gap: 1rem;
-    margin-top: 0.5rem;
+    margin: 0 auto; /* Автоматические отступы */
+    max-width: 650px; /* Опционально: ограничиваем ширину */
 }
 
 .purpose-card {
